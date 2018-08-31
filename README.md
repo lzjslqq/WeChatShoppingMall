@@ -1,2 +1,2 @@
-# lzjslqq-WeChatShoppingMall
+# WeChatShoppingMall
 the shopping mall in wechat 
