@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "商品列表";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="/Content/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/common/css/plugins/jqgrid/ui.jqgridffe4.css" rel="stylesheet" />
+    <link href="/Content/common/css/animate.min.css" rel="stylesheet">
+    <link href="/Content/common/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/common/js/plugins/layer/skin/layer.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>商品列表</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="jqGrid_wrapper">
+                            <table id="list"></table>
+                            <div id="pager"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/common/js/jquery.min.js"></script>
+    <script src="/Content/common/js/bootstrap.min.js"></script>
+    <script src="/Content/common/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/jquery.jqGrid.minffe4.js"></script>
+    <script src="/Content/common/js/content.min.js"></script>
+    <script src="~/Content/common/js/plugins/layer/layer.min.js"></script>
+</body>
+</html>
+<script>
+
+    $(document).ready(function () {
+        $.jgrid.defaults.styleUI = "Bootstrap";
+        loadData();
+        $(window).bind("resize", function () {
+            var width = $(".jqGrid_wrapper").width();
+            $("#list").setGridWidth(width);
+        });
+    });
+
+    function loadData() {
+        $("#list").jqGrid({
+            url: '@Url.Action("List", "Product")',
+            //传递参数
+            postData: {
+                //name: $('#txtName').val().trim()
+            },
+            datatype: "json",
+            mtype: "post",
+            rownumbers: true,
+            autowidth: true,
+            shrinkToFit: true,
+            forceFit: false,
+            height: 400,
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            colNames: ["ID", "名称", "货号", "售价", "简介", "添加日期", "操作"],
+            colModel: [
+                { name: "Id", index: "Id", sortable: false, hidden: true },
+                { name: "Name", index: "Name", sortable: false, width: 80 },
+                { name: "Code", index: "Code", width: 70, sortable: false },
+                {
+                    name: "Price", sortable: false, width: 50, search: false, formatter: function (cellvaule, options, rowObject) {
+                        return '¥' + cellvaule / 100.00;
+                    }
+                },
+                { name: "Summary", index: "Summary", sortable: false, search: false },
+                { name: "CreateTime", index: "CreateTime", formatter: "date", search: false, formatoptions: { newformat: 'Y/m/d h:m' }, width: 70, sortable: false },
+                {
+                    name: "Id", index: "Id", sortable: false, width: 100, search: false, formatter: function (cellvaule, options, rowObject) {
+                        var text = rowObject.IsRecommended == 1 ? "取消推荐" : "推荐";
+                        var button = "<button id=\"btnEdit\" onclick='editProduct(\"" + rowObject.Id + "\")'' type=\"button\" title=\"编辑\" class=\"btn btn-success btn-sm  easyui-tooltip\">编辑</button>&nbsp;&nbsp;<button id=\"btnDel\" onclick='deleteProduct(\"" + rowObject.Id + "\")'' type=\"button\" title=\"删除\" class=\"btn btn-success btn-sm  easyui-tooltip\">删除</button>";
+                        return button;
+                    }
+                }
+            ],
+            pager: "#pager",
+            sortname: 'id',
+            sortorder: "desc",
+            viewrecords: true
+            //,caption: '商品列表'
+        });
+
+        $("#list").filterToolbar();
+        $("#list").jqGrid("navGrid", "#pager", { edit: false, add: false, addtext: "添加商品", del: false, search: false, refreshtext: '刷新' }, { height: 200, reloadAfterSubmit: true })
+        .navButtonAdd('#pager', {
+            caption: "添加商品", title: '点击添加', buttonicon: "glyphicon-plus", onClickButton: function () {
+
+                window.location.href = '/product/edit/';
+            },
+            position: "first"
+        })
+    }
+
+    //编辑
+    function editProduct(rowId) {
+        if (!rowId)
+            return;
+        window.location.href = '/product/edit/' + rowId;
+    }
+
+    //删除
+    function deleteProduct(rowId) {
+        layer.confirm('确定要删除吗？', {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            if (!rowId)
+                return;
+            $.ajax({
+                url: '/product/delete',
+                data: { Id: rowId },
+                type: 'post',
+                datatype: "json",
+                async: false,
+                success: function (data) {
+                    if (data != undefined && data.res == true) {
+                        layer.msg(data.msg);
+                        refresh();
+                    }
+                    else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function () {
+                    layer.msg('网络连接错误，请重试');
+                }
+            });
+        });
+    }
+
+    //编辑图片
+    function editCaseFile(rowId) {
+        if (!rowId)
+            return;
+        window.location.href = '/admin/casefile/list?caseid=' + rowId;
+    }
+    //添加
+    $(function () {
+        $('#addChannel').click(function () {
+            window.location.href = '/admin/case/edit';
+        });
+    })
+
+    //推荐
+    function recommend(caseId, type) {
+        if (!caseId) {
+            return;
+        }
+
+        $.ajax({
+            url: type == 1 ? '/admin/recommend/delete' : '/admin/recommend/add',
+            data: { caseId: caseId },
+            type: 'post',
+            datatype: "json",
+            async: false,
+            success: function (data) {
+                if (data != undefined && data.res == true) {
+                    layer.msg(data.msg);
+                    refresh();
+                }
+                else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function () {
+                layer.msg('网络连接错误，请重试');
+            }
+        });
+
+    }
+</script>

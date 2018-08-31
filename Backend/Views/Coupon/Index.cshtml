@@ -1,0 +1,151 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "优惠券列表";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="/Content/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/common/css/plugins/jqgrid/ui.jqgridffe4.css" rel="stylesheet" />
+    <link href="/Content/common/css/animate.min.css" rel="stylesheet">
+    <link href="/Content/common/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/common/js/plugins/layer/skin/layer.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>优惠券管理</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="jqGrid_wrapper">
+                            <table id="list"></table>
+                            <div id="pager"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/common/js/jquery.min.js"></script>
+    <script src="/Content/common/js/bootstrap.min.js"></script>
+    <script src="/Content/common/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/jquery.jqGrid.minffe4.js"></script>
+    <script src="/Content/common/js/content.min.js"></script>
+    <script src="~/Content/common/js/plugins/layer/layer.min.js"></script>
+</body>
+</html>
+<script>
+
+    $(document).ready(function () {
+        $.jgrid.defaults.styleUI = "Bootstrap";
+        loadData();
+        $(window).bind("resize", function () {
+            var width = $(".jqGrid_wrapper").width();
+            $("#list").setGridWidth(width);
+        });
+    });
+    function refresh() {
+
+        $("#list").trigger('reloadGrid');
+    }
+    function loadData() {
+        $("#list").jqGrid({
+            url: '@Url.Action("List", "Coupon")',
+            //传递参数
+            postData: {
+                //name: $('#txtName').val().trim()
+            },
+            datatype: "json",
+            mtype: "post",
+            rownumbers: true,
+            autowidth: true,
+            shrinkToFit: true,
+            forceFit: true,
+            height: 400,
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            colNames: ["ID", "名称", "开始时间", "结束时间", "最低使用金额", "减免金额", "有效期", "使用说明", "操作"],
+            colModel: [
+                { name: "Id", index: "Id", sortable: false, hidden: true },
+                { name: "Title", sortable: false, width: 80 },
+                { name: "StartTime", formatter: "date", search: false, formatoptions: { newformat: 'Y/m/d h:m' }, width: 80, sortable: false },
+                { name: "EndTime", formatter: "date", search: false, formatoptions: { newformat: 'Y/m/d h:m' }, width: 80, sortable: false },
+                {
+                    name: "MinFee", sortable: false, width: 60, search: false, formatter: function (cellvaule, options, rowObject) {
+                        return '¥' + cellvaule / 100.00;
+                    }
+                },
+                {
+                    name: "RebateFee", sortable: false, width: 50, search: false, formatter: function (cellvaule, options, rowObject) {
+                        return '¥' + cellvaule / 100.00;
+                    }
+                },
+                { name: "ValidDays", sortable: false, search: false, width: 40 },
+                { name: "Description", sortable: false, search: false },
+                {
+                    name: "Id", index: "Id", sortable: false, width: 100, search: false, formatter: function (cellvaule, options, rowObject) {
+                        var text = rowObject.IsRecommended == 1 ? "取消推荐" : "推荐";
+                        var button = "<button id=\"btnEdit\" onclick='edit(\"" + rowObject.Id + "\")'' type=\"button\" title=\"编辑\" class=\"btn btn-success btn-sm  easyui-tooltip\">编辑</button>&nbsp;&nbsp;<button id=\"btnDel\" onclick='deleteProduct(\"" + rowObject.Id + "\")'' type=\"button\" title=\"删除\" class=\"btn btn-success btn-sm  easyui-tooltip\">删除</button>";
+                        return button;
+                    }
+                }
+            ],
+            pager: "#pager",
+            sortname: 'id',
+            sortorder: "desc",
+            viewrecords: true,
+            caption: '优惠券列表'
+        });
+
+        $("#list").filterToolbar();
+        $("#list").jqGrid("navGrid", "#pager", { edit: false, add: false, addtext: "添加优惠券", del: false, search: false, refreshtext: '刷新' }, { height: 200, reloadAfterSubmit: true })
+        .navButtonAdd('#pager', {
+            caption: "添加优惠券", title: '点击添加', buttonicon: "glyphicon-plus", onClickButton: function () {
+
+                window.location.href = '/coupon/edit';
+            },
+            position: "first"
+        })
+    }
+
+    //编辑
+    function edit(rowId) {
+        if (!rowId)
+            return;
+        window.location.href = '/coupon/edit/' + rowId;
+    }
+
+    //删除
+    function deleteProduct(rowId) {
+        layer.confirm('确定要删除吗？', {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            if (!rowId)
+                return;
+            $.ajax({
+                url: '/coupon/delete',
+                data: { Id: rowId },
+                type: 'post',
+                datatype: "json",
+                async: false,
+                success: function (data) {
+                    if (data != undefined && data.res == true) {
+                        layer.msg(data.msg);
+                        refresh();
+                    }
+                    else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function () {
+                    layer.msg('网络连接错误，请重试');
+                }
+            });
+        });
+    }
+</script>

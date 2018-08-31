@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\WebDeploy\Web\XzpBackend</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AntiXssLibrary.dll">
+      <publishTime>07/05/2018 14:32:26</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/Autofac.Integration.Mvc.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/Backend.dll">
+      <publishTime>08/31/2018 13:54:13</publishTime>
+    </File>
+    <File Include="bin/ClientDto.dll">
+      <publishTime>08/31/2018 13:54:10</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>08/31/2018 13:54:09</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="bin/DapperExtension.dll">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>07/05/2018 14:32:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/05/2018 14:32:22</publishTime>
+    </File>
+    <File Include="bin/Model.dll">
+      <publishTime>08/31/2018 13:54:10</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/05/2018 14:32:25</publishTime>
+    </File>
+    <File Include="bin/Repository.dll">
+      <publishTime>08/31/2018 13:54:11</publishTime>
+    </File>
+    <File Include="bin/Service.dll">
+      <publishTime>08/31/2018 13:54:12</publishTime>
+    </File>
+    <File Include="bin/ServiceDto.dll">
+      <publishTime>08/31/2018 13:54:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/05/2018 14:31:15</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/05/2018 14:31:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/Utility.dll">
+      <publishTime>08/31/2018 13:54:09</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/05/2018 14:32:26</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>07/05/2018 14:31:54</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>07/05/2018 14:31:55</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>07/05/2018 14:31:58</publishTime>
+    </File>
+    <File Include="Content/common/css/animate.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/bootstrap.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/demo/webuploader-demo.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/font-awesome.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/font-awesome.min93e3.css">
+      <publishTime>08/31/2018 11:14:52</publishTime>
+    </File>
+    <File Include="Content/common/css/login.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/login.min.css">
+      <publishTime>08/31/2018 11:20:37</publishTime>
+    </File>
+    <File Include="Content/common/css/patterns/shattered.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/css/blueimp-gallery.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/error.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/error.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/loading.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/play-pause.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/play-pause.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/video-play.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/blueimp/img/video-play.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/bootstrap-table/bootstrap-table.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/chosen/chosen-sprite%402x.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/chosen/chosen-sprite.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/chosen/chosen.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/clockpicker/clockpicker.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/codemirror/ambiance.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/codemirror/codemirror.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/css/bootstrap-colorpicker.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/img/bootstrap-colorpicker/alpha-horizontal.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/img/bootstrap-colorpicker/alpha.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/img/bootstrap-colorpicker/hue-horizontal.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/img/bootstrap-colorpicker/hue.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/colorpicker/img/bootstrap-colorpicker/saturation.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/cropper/cropper.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/datapicker/datepicker3.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/dataTables/dataTables.bootstrap.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/dropzone/basic.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/dropzone/dropzone.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/fonts/footable.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/fonts/footable.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/fonts/footable.ttf">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/fonts/footable.woff">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/fonts/footabled41d.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/footable/footable.core.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/fullcalendar/fullcalendar.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/fullcalendar/fullcalendar.print.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/iCheck/custom.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/iCheck/green%402x.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/iCheck/green.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/images/sort_asc.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/images/sort_desc.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/images/sprite-skin-flat.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/images/spritemap%402x.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/images/spritemap.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/ionRangeSlider/ion.rangeSlider.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/jasny/jasny-bootstrap.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/jqgrid/ui.jqgridffe4.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/jsTree/style.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/markdown/bootstrap-markdown.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/morris/morris-0.4.3.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/nouslider/jquery.nouislider.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/plyr/plyr.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/plyr/sprite.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/simditor/simditor.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/steps/jquery.steps.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/summernote/summernote-bs3.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/summernote/summernote.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/sweetalert/sweetalert.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/switchery/switchery.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/toastr/toastr.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/treeview/bootstrap-treeview.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/plugins/webuploader/webuploader.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/style.min.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/css/tooltip.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfont93e3.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfont93e3.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfont93e3.ttf">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfont93e3.woff">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfont93e3.woff2">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/fontawesome-webfontd41d.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/fonts/glyphicons-halflings-regulard41d.eot">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/aiwrap.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/big.jpg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/icons.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/khjl.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/loading-upload.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/locked.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/login_bg.jpg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/logo.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/progress.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/qipao.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/qq.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/refresh.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/success.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/tel.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/user.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/whiteSpace.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/wx.jpg">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/wx.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/img/wx_icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/ajaxfileupload.js">
+      <publishTime>08/27/2018 09:24:36</publishTime>
+    </File>
+    <File Include="Content/common/js/bootstrap.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/clipboard.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/content.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/bootstrap-table-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/echarts-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/flot-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/form-advanced-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/form-validate-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/layer-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/morris-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/peity-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/rickshaw-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/sparkline-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/treeview-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/demo/webuploader-demo.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/jquery-ui-1.10.4.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/jquery-ui.custom.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/jquery.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/nav.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/beautifyhtml/beautifyhtml.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/blueimp/jquery.blueimp-gallery.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/bootstrap-table/bootstrap-table.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/chartJs/Chart.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/chosen/chosen.jquery.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/clockpicker/clockpicker.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/codemirror/codemirror.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/codemirror/mode/javascript/javascript.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/colorpicker/bootstrap-colorpicker.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/cropper/cropper.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/datapicker/bootstrap-datepicker.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/dataTables/dataTables.bootstrap.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/dataTables/jquery.dataTables.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/diff_match_patch/diff_match_patch.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/dropzone/dropzone.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/easypiechart/jquery.easypiechart.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/echarts/echarts-all.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/blank.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/fancybox_loading%402x.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/fancybox_loading.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/fancybox_overlay.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/fancybox_sprite%402x.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/fancybox_sprite.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/jquery.fancybox.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fancybox/jquery.fancybox.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/curvedLines.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.pie.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.resize.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.spline.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.symbol.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/flot/jquery.flot.tooltip.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/footable/footable.all.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/fullcalendar/fullcalendar.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/gritter/images/gritter-light.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/gritter/images/gritter.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/gritter/images/ie-spacer.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/gritter/jquery.gritter.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/gritter/jquery.gritter.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/iCheck/icheck.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/ionRangeSlider/ion.rangeSlider.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jasny/jasny-bootstrap.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jeditable/jquery.jeditable.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jqgrid/jquery.jqGrid.minffe4.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jquery-ui/jquery-ui.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jsKnob/jquery.knob.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jsTree/jstree.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/extend/layer.ext.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1.zip">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/demo.html">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/laydate.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/need/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/dahong/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/dahong/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/default/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/default/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/molv/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/laydate/skins/molv/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/layDate官网.url">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate-v1.1/更新日志.txt">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/laydate.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/need/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/dahong/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/dahong/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/default/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/default/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/molv/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/laydate/skins/molv/laydate.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/layer.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/layim/layim.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/layim/layim.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/layim/loading.gif">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/skin/default/icon.png">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/skin/layer.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/skin/layer.ext.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/layer/skin/moon/style.css">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/markdown/bootstrap-markdown.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/markdown/bootstrap-markdown.zh.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/markdown/markdown.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/markdown/to-markdown.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/metisMenu/jquery.metisMenu.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/morris/morris.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/morris/raphael-2.1.0.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/nestable/jquery.nestable.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/nouslider/jquery.nouislider.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/pace/pace.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/peity/jquery.peity.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/plyr/plyr.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/preetyTextDiff/jquery.pretty-text-diff.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/prettyfile/bootstrap-prettyfile.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/rickshaw/rickshaw.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/rickshaw/vendor/d3.v3.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/simditor/hotkeys.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/simditor/module.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/simditor/simditor.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/simditor/uploader.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/slimscroll/jquery.slimscroll.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/sparkline/jquery.sparkline.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/staps/jquery.steps.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/suggest/bootstrap-suggest.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/summernote/summernote-zh-CN.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/summernote/summernote.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/sweetalert/sweetalert.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/switchery/switchery.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/toastr/toastr.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/treeview/bootstrap-treeview.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/validate/jquery.validate.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/validate/messages_zh.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/webuploader/index.html">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/webuploader/Uploader.swf">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/plugins/webuploader/webuploader.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/tabs.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/js/welcome.min.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/plugins/fullavatareditor/scripts/fullAvatarEditor.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/plugins/fullavatareditor/scripts/jQuery.Cookie.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/plugins/fullavatareditor/scripts/swfobject.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Content/common/plugins/fullavatareditor/scripts/test.js">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/05/2018 19:34:42</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Views/Admin/Login.cshtml">
+      <publishTime>08/31/2018 13:52:17</publishTime>
+    </File>
+    <File Include="Views/Coupon/Edit.cshtml">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Views/Coupon/Index.cshtml">
+      <publishTime>07/05/2018 19:34:42</publishTime>
+    </File>
+    <File Include="Views/Order/Edit.cshtml">
+      <publishTime>07/09/2018 12:31:46</publishTime>
+    </File>
+    <File Include="Views/Order/Index.cshtml">
+      <publishTime>07/09/2018 12:31:46</publishTime>
+    </File>
+    <File Include="Views/Product/Edit.cshtml">
+      <publishTime>08/31/2018 10:59:42</publishTime>
+    </File>
+    <File Include="Views/Product/Index.cshtml">
+      <publishTime>07/05/2018 19:34:42</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>07/05/2018 14:23:06</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>08/31/2018 11:05:21</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/06/2018 16:53:04</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

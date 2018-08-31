@@ -1,0 +1,6 @@
+.bubble {position: relative;z-index: 99999;display: block;max-width:200px;visibility: visible;font-size: 12px;line-height: 2.4;}
+.bubble-arrow {position: absolute;width: 0;height: 0;border-color: transparent;border-style: solid;}
+.bubble-inner {max-width: inherit;padding: 3px 8px;color: #000;text-align: center;text-decoration: none;background-color: #ffffff;border-radius: 4px;}
+.bubble.left {margin-left: -1px;padding: 0 5px;}
+.bubble.left .bubble-arrow {top: 50%;right: 0;margin-top: -5px;border-width: 5px 0 5px 5px;border-left-color: #ffffff;}
+

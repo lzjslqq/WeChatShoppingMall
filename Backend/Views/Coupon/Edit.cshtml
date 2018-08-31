@@ -1,0 +1,175 @@
+﻿@model ClientDto.Backend.CouponDetailDto
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <link href="/Content/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/common/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/common/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="~/Content/common/js/plugins/layer/skin/layer.css" rel="stylesheet" />
+</head>
+<body class="gray-bg pdt-15">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="m-book-title">@(Model.Id > 0 ? "编辑优惠券" : "添加优惠券")</span>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="signupForm" method="post" action="/coupon/edit">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">标题</label>
+                                <div class="col-sm-8">
+                                    <input id="name" name="title" class="form-control" type="text" value="@Model.Title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">开始时间</label>
+                                <div class="col-sm-8">
+                                    <input id="start" name="starttime" placeholder="开始时间" class="form-control layer-date" value="@Model.StartTime">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">结束时间</label>
+                                <div class="col-sm-8">
+                                    <input id="end" name="endtime" placeholder="结束时间" class="form-control layer-date" value="@Model.EndTime">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">最小金额（元）</label>
+                                <div class="col-sm-8">
+                                    <input name="minfee" placeholder="大于该金额才可使用" class="form-control" type="number" value="@(Model.MinFee/100.0)">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">减免金额（元）</label>
+                                <div class="col-sm-8">
+                                    <input name="rebatefee" class="form-control" type="number" value="@(Model.RebateFee/100.0)">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">可拥有数量</label>
+                                <div class="col-sm-8">
+                                    <input name="maxownlimit" placeholder="用户最多可持有数量" class="form-control" type="number" value="@Model.MaxOwnLimit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">长期有效</label>
+                                <div class="col-sm-8">
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="checkbox" id="ispersistent" name="ispersistent" value="1" @(Model.IsPersistent == 1 ? "checked" : "")>长期有效
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="vday" class="form-group @(Model.IsPersistent==1 ? "hide":"")">
+                                <label class="col-sm-3 control-label">有效期（天）</label>
+                                <div class="col-sm-8">
+                                    <input name="validdays" placeholder="领取后有效期" class="form-control" type="number" value="@Model.ValidDays">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">描述</label>
+                                <div class="col-sm-8">
+                                    <textarea id="description" name="description" class="form-control" rows="6">@Model.Description</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="Id" value="@Model.Id" />
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" id="btnOk" type="button">保存</button>
+                                    <button id="btnBack" class="btn btn-default" type="button">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Content/common/js/jquery.min.js"></script>
+<script src="~/Content/common/js/plugins/layer/layer.min.js"></script>
+<script src="~/Content/common/js/plugins/layer/laydate/laydate.js"></script>
+<script src="~/Content/common/js/plugins/iCheck/icheck.min.js"></script>
+<script>
+
+    var start = {
+        elem: "#start",
+        format: "YYYY/MM/DD hh:mm:ss",
+        min: laydate.now(),
+        max: "2099-06-16 23:59:59",
+        istime: true,
+        istoday: true,
+        choose: function (datas) {
+            end.min = datas;
+            end.start = datas;
+        }
+    };
+    var end = {
+        elem: "#end",
+        format: "YYYY/MM/DD hh:mm:ss",
+        min: laydate.now(),
+        max: "2099-06-16 23:59:59",
+        istime: true,
+        istoday: false,
+        choose: function (datas) {
+            start.max = datas;
+        }
+    };
+    laydate(start);
+    laydate(end);
+
+    $(function () {
+
+        $('#ispersistent').iCheck({ checkboxClass: "icheckbox_square-green" })
+            .on('ifChecked', function (event) {
+                $('#vday').addClass('hide');
+            })
+            .on('ifUnchecked', function (event) {
+                $('#vday').removeClass('hide');
+            });
+
+        $('#btnOk').click(function () {
+            if (!$("#name").val()) {
+                layer.msg('请输入标题');
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/coupon/edit",
+                dataType: "json",
+                data: $('#signupForm').serialize(),
+                success: function (data) {
+                    if (data) {
+                        if (data.res) {
+
+                            layer.msg(data.msg);
+                        }
+                        else {
+                            layer.msg(data.msg);
+                        }
+                    }
+                    else {
+                        layer.msg("网络连接错误");
+                    }
+                },
+                error: function () {
+                    layer.msg("网络连接错误");
+                }
+            });
+        });
+
+        $("#btnBack").click(function () {
+            window.location.href = "/coupon/index";
+        });
+
+    })
+</script>

@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:49 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>商城运营后台 - 登录</title>
+    <link href="/content/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/content/common/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="/content/common/css/animate.min.css" rel="stylesheet">
+    <link href="/content/common/css/style.min.css" rel="stylesheet">
+    <link href="/content/common/css/login.min.css" rel="stylesheet">
+    <script src="/Content/common/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) { window.top.location = window.location };
+
+        var isSubmit = false; // 是否已提交
+        function login() {
+            if (window.isSubmit) {
+                alert('请勿重复提交！');
+                return;
+            }
+
+            window.isSubmit = true;
+            var name = $('input[name="name"]').val();
+            var pwd = $('input[name="pwd"]').val();
+
+            var ajaxData = {
+                url: '/admin/checklogin', 
+                data: JSON.stringify({ userName: name, userPwd: pwd }),
+                type: 'Post',
+                dataType: 'json',
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (result.status) {
+                        window.location.href = result.redirect;
+                    } else {
+                        alert(result.msg);
+                    }
+                    window.isSubmit = false;
+                },
+                error: function () {
+                    alert('系统失败，请联系管理员！');
+                    window.isSubmit = false;
+                }
+            }
+            $.ajax(ajaxData);
+        }
+    </script>
+
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <h1>香之派商城管理后台</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form method="post" action="">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到香之派商城管理后台</p>
+                    <input type="text" name="name" class="form-control uname" placeholder="用户名" />
+                    <input type="password" name="pwd" class="form-control pword m-b" placeholder="密码" />
+                    <button type="button" onclick="login()" class="btn btn-success btn-block">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2018 All Rights Reserved. XZPFood.Com
+            </div>
+        </div>
+    </div>
+</body>
+</html>

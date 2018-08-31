@@ -1,0 +1,171 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "订单列表";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="/Content/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/common/css/plugins/jqgrid/ui.jqgridffe4.css" rel="stylesheet" />
+    <link href="/Content/common/css/animate.min.css" rel="stylesheet">
+    <link href="/Content/common/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/common/js/plugins/layer/skin/layer.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h5>订单管理</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="jqGrid_wrapper">
+                            <table id="list"></table>
+                            <div id="pager"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/common/js/jquery.min.js"></script>
+    <script src="/Content/common/js/bootstrap.min.js"></script>
+    <script src="/Content/common/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js"></script>
+    <script src="/Content/common/js/plugins/jqgrid/jquery.jqGrid.minffe4.js"></script>
+    <script src="/Content/common/js/content.min.js"></script>
+    <script src="~/Content/common/js/plugins/layer/layer.min.js"></script>
+</body>
+</html>
+<script>
+    var ostatus = '@ViewData["status"]';
+    $(document).ready(function () {
+        $.jgrid.defaults.styleUI = "Bootstrap";
+        loadData();
+        $(window).bind("resize", function () {
+            var width = $(".jqGrid_wrapper").width();
+            $("#list").setGridWidth(width);
+        });
+    });
+    function refresh() {
+
+        $("#list").trigger('reloadGrid');
+    }
+    function loadData() {
+        $("#list").jqGrid({
+            url: '@Url.Action("List", "Order")',
+            //传递参数
+            postData: {
+                status: ostatus
+            },
+            datatype: "json",
+            mtype: "post",
+            rownumbers: true,
+            autowidth: true,
+            shrinkToFit: true,
+            forceFit: true,
+            height: 400,
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            colNames: ["ID", "交易单号", "用户", "订单金额", "实付金额", "付款时间", "创建时间", "物流名称", "物流单号", "操作"],
+            colModel: [
+                { name: "Id", index: "Id", sortable: false, hidden: true },
+                { name: "TradeNo", sortable: false, width: 100 },
+                { name: "UserNickname", sortable: false, width: 80 },
+                {
+                    name: "TotalFee", sortable: false, width: 50, search: false, formatter: function (cellvaule, options, rowObject) {
+                        return '¥' + cellvaule / 100.00;
+                    }
+                },
+                {
+                    name: "Payment", sortable: false, width: 50, search: false, hidden: ostatus == '0' || ostatus == '4', formatter: function (cellvaule, options, rowObject) {
+                        return '¥' + cellvaule / 100.00;
+                    }
+                },
+                { name: "PayTime", formatter: "date", search: false, hidden: ostatus == '0' || ostatus == '4', formatoptions: { newformat: 'Y/m/d h:m' }, width: 80, sortable: false },
+                { name: "CreateTime", formatter: "date", search: false, formatoptions: { newformat: 'Y/m/d h:m' }, width: 80, sortable: false },
+                { name: "ShippingName", sortable: false, search: false, width: 80, hidden: ostatus != '2' && ostatus != '3' },
+                { name: "ShippingCode", sortable: false, width: 80, hidden: ostatus != '2' && ostatus != '3' },
+                {
+                    name: "Id", index: "Id", sortable: false, width: 100, search: false, formatter: function (cellvaule, options, rowObject) {
+                        var text = rowObject.IsRecommended == 1 ? "取消推荐" : "推荐";
+                        var button = "<button id=\"btnEdit\" onclick='edit(\"" + rowObject.Id + "\")'' type=\"button\" title=\"查看\" class=\"btn btn-success btn-sm  easyui-tooltip\">查看</button>&nbsp;&nbsp;";
+
+                        if (ostatus == '1')
+                            button += "<button onclick='ship(\"" + rowObject.Id + "\")'' type=\"button\" title=\"发货\" class=\"btn btn-primary btn-sm  easyui-tooltip\">发货</button>&nbsp;&nbsp;"
+                        return button;
+                    }
+                }
+            ],
+            pager: "#pager",
+            sortname: 'id',
+            sortorder: "desc",
+            viewrecords: true,
+            caption: '订单列表'
+        });
+
+        $("#list").filterToolbar();
+        $("#list").jqGrid("navGrid", "#pager", { edit: false, add: false, addtext: "添加优惠券", del: false, search: false, refreshtext: '刷新' }, { height: 200, reloadAfterSubmit: true });
+
+    }
+
+    // 查看
+    function edit(rowId) {
+        if (!rowId)
+            return;
+        window.location.href = '/order/edit/' + rowId;
+    }
+
+    function ship(rowId) {
+        if (!rowId)
+            return;
+        layer.open({
+            type: 0,
+            area: ['300px', '300px'],
+            content: '<div class="form-group">' +
+                        '<label>物流名称</label>' +
+                        '<input id="shippingName" type="text" placeholder="例如：顺丰快递" class="form-control">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>物流单号</label>' +
+                        '<input id="shippingCode" type="text" placeholder="请输入单号" class="form-control">' +
+                    '</div>',
+            btn: ['确认发货', '取消'],
+            yes: function (index, layero) {
+                var name = $('#shippingName').val();
+                var code = $('#shippingCode').val();
+                if (!name || !code) {
+                    layer.msg("请填写完整的物流信息");
+                }
+                else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/order/ship",
+                        dataType: "json",
+                        data: { id: rowId, name: name, code: code },
+                        success: function (data) {
+                            if (data) {
+                                if (data.res) {
+                                    layer.msg(data.msg);
+                                    setTimeout(refresh, 500);
+                                }
+                                else {
+                                    layer.msg(data.msg);
+
+                                }
+                            }
+                            else {
+                                layer.msg("网络连接错误");
+                            }
+                        },
+                        error: function () {
+                            layer.msg("网络连接错误");
+                        }
+                    });
+                }
+            }
+        });
+    }
+</script>
