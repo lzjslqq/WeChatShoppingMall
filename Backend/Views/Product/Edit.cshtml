@@ -39,13 +39,13 @@
                                 <div class="col-sm-8">
                                     <div class="radio i-checks">
                                         <label>
-                                            <input type="radio" value="0" @(Model.ClassId == 0 ? "checked" : "") name="classid"> <i></i>鸡产品
+                                            <input type="radio" value="1" @(Model.ClassId == 1 ? "checked" : "") name="classid"> <i></i>鸡产品
                                         </label>
                                         <label>
-                                            <input type="radio" value="1" @(Model.ClassId == 1 ? "checked" : "") name="classid"> <i></i>鸭产品
+                                            <input type="radio" value="2" @(Model.ClassId == 2 ? "checked" : "") name="classid"> <i></i>鸭产品
                                         </label>
                                         <label>
-                                            <input type="radio" value="2" @(Model.ClassId == 2 ? "checked" : "") name="classid"> <i></i>高端伴手礼
+                                            <input type="radio" value="3" @(Model.ClassId == 3 ? "checked" : "") name="classid"> <i></i>高端伴手礼
                                         </label>
                                     </div>
                                 </div>
@@ -175,12 +175,25 @@
                                 <div class="col-sm-8 col-sm-offset-3">
                                     <button type="submit" class="btn btn-primary btn-lg submit" id="btnOk">保存</button>
                                     <input type="hidden" name="Id" value="@Model.Id" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImgList" value="" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImg1" value="" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImg2" value="" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImg3" value="" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImg4" value="" />
-                                    <input type="hidden" name="bannerImgList" id="bannerImg5" value="" />
+									@{
+										var imgListStr = "";
+                                        // int count = Model.CoverImages.Count();
+                                        if (count > 0)
+                                        {
+                                            // 已上传的图
+                                            for (int i = 1; i <= count; i++)
+                                            {
+												imgListStr += @Model.CoverImages.ElementAt(i-1) + "|";
+												<input type="hidden" id="bannerImg@(i)" value="@Model.CoverImages.ElementAt(i-1)" />
+                                            }
+                                        }
+                                        // 未上传的图
+                                        for (int i = count + 1; i <= 5; i++)
+                                        {
+											<input type="hidden" id="bannerImg@(i)" value="" />
+                                        }
+										<input type="hidden" name="bannerImgList" id="bannerImgList" value="@imgListStr.TrimEnd('|')" />
+                                    }
                                     <input type="hidden" name="detailImg" id="detailImg" value="@(!Model.DetailImages.Any() ? "" : Model.DetailImages.First())" />
                                     <input type="hidden" name="coverImg" id="coverImg" value="@Model.CoverUrl" />
                                 </div>
