@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using ClientDto.Api;
 using Model;
 using Model.Common;
 using Service;
@@ -141,7 +142,58 @@ namespace Api.Controllers
             return new ComplexResponse<bool>((int)msg, msg.ToString(), data);
         }
 
+        [HttpGet]
+        public List<AddressPostFeeDto> GetAllPostFee()
+        {
+            string[] provincesForFree = new string[]
+            {
+                "北京","天津","河北","山西","辽宁","吉林","黑龙江","上海","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","广西","重庆","四川","陕西"
+            };
 
+            string[] provincesFor4 = new string[]
+            {
+                "内蒙古","海南","贵州","云南","甘肃","青海","宁夏"
+            };
 
+            string[] provincesFor10 = new string[]
+            {
+                "西藏","新疆"
+            };
+
+            List<AddressPostFeeDto> dtos = new List<AddressPostFeeDto>();
+            foreach (var item in provincesForFree)
+            {
+                var dto = new AddressPostFeeDto
+                {
+                    Province = item,
+                    UnitPostFee = 0
+                };
+
+                dtos.Add(dto);
+            }
+            foreach (var item in provincesFor4)
+            {
+                var dto = new AddressPostFeeDto
+                {
+                    Province = item,
+                    UnitPostFee = 400  // 分为单位
+                };
+
+                dtos.Add(dto);
+            }
+
+            foreach (var item in provincesFor10)
+            {
+                var dto = new AddressPostFeeDto
+                {
+                    Province = item,
+                    UnitPostFee = 1000  // 分为单位
+                };
+
+                dtos.Add(dto);
+            }
+
+            return dtos;
+        }
     }
 }

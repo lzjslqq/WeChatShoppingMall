@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AddressPostFeeDto.cs" />
     <Compile Include="Api\CouponDto.cs" />
     <Compile Include="Api\ProductDetailDto.cs" />
     <Compile Include="Backend\CouponDetailDto.cs" />
