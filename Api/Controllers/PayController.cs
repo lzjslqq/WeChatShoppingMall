@@ -144,6 +144,7 @@ namespace Api.Controllers
             var dict = new Dictionary<string, string>();
 
             XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.XmlResolver = null; // 禁止解析 外部资源文件，用于防范 xxe 攻击
             xmlDoc.LoadXml(xml);
 
             // 获取到根节点<xml>

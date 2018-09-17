@@ -10,5 +10,9 @@ namespace ClientDto.Api
     {
         public string Province { get; set; }
         public int UnitPostFee { get; set; }
+        public string UnitPostFeeStr
+        {
+            get { return ((float)(UnitPostFee / 100.00)).ToString("F2"); }
+        }
     }
 }

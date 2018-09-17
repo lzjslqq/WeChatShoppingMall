@@ -143,7 +143,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public List<AddressPostFeeDto> GetAllPostFee()
+        public ComplexResponse<List<AddressPostFeeDto>> GetAllPostFee()
         {
             string[] provincesForFree = new string[]
             {
@@ -193,7 +193,7 @@ namespace Api.Controllers
                 dtos.Add(dto);
             }
 
-            return dtos;
+            return new ComplexResponse<List<AddressPostFeeDto>>((int)ErrorMessage.成功, ErrorMessage.成功.ToString(), dtos);
         }
     }
 }
